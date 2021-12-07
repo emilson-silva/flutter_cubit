@@ -9,9 +9,9 @@ class WelcomePage extends StatefulWidget {
 
 class _WelcomePageState extends State<WelcomePage> {
   List images = [
-    "pirenopolis-two.jpg",
-    "pirenopolis-one.jpg",
-    "pirenopolis-three.png",
+    "welcome-one.png",
+    "welcome-two.png",
+    "welcome-three.png",
   ];
   @override
   Widget build(BuildContext context) {
