@@ -30,8 +30,13 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: pages[0],
       bottomNavigationBar: BottomNavigationBar(
+        unselectedFontSize: 0,
+        selectedFontSize: 0,
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.white,
         onTap: onTap,
         currentIndex: currentIndex,
         selectedItemColor: Colors.black54,
