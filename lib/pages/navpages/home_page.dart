@@ -85,9 +85,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           fit: BoxFit.cover,
                         ),
                       ),
-                    );
+                    );            
                   },
                 ),
+                Text("olá"),
+                Text("oi"),
               ],
             ),
           ),

@@ -44,7 +44,7 @@ class _MainPageState extends State<MainPage> {
         showSelectedLabels: false,
         showUnselectedLabels: false,
         elevation: 0,
-        items: [
+        items:const [
           BottomNavigationBarItem(title: Text("Home"), icon: Icon(Icons.apps)),
           BottomNavigationBarItem(
               title: Text("Bar"), icon: Icon(Icons.bar_chart_sharp)),
@@ -54,5 +54,5 @@ class _MainPageState extends State<MainPage> {
         ],
       ),
     );
-  }
+  }            
 }
