@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             padding: const EdgeInsets.only(top: 70, left: 20),
             child: Row(
               children: [
-                Icon(Icons.menu, size: 30, color: Colors.black54),
+                const Icon(Icons.menu, size: 30, color: Colors.black54),
                 Expanded(child: Container()),
                 Container(
                   margin: const EdgeInsets.only(right: 20),
@@ -36,13 +36,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               ],
             ),
           ),
-          SizedBox(height: 40),
+          const SizedBox(height: 40),
           //discover text
           Container(
             margin: const EdgeInsets.only(left: 20),
             child: AppLargeTerxt(text: 'Discover'),
           ),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           //tabbar
           Container(
             child: Align(
@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 indicatorSize: TabBarIndicatorSize.label,
                 indicator:
                     CircleTabIndicator(color: AppColors.mainColor, radius: 4),
-                tabs: [
+                tabs: const [
                   Tab(text: "Places"),
                   Tab(text: "Inspiration"),
                   Tab(text: "Emotions"),
@@ -80,7 +80,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.white,
-                        image: DecorationImage(
+                        image: const DecorationImage(
                           image: AssetImage("img/mountain.jpeg"),
                           fit: BoxFit.cover,
                         ),
@@ -101,9 +101,11 @@ class CircleTabIndicator extends Decoration {
   final Color color;
   double radius;
   CircleTabIndicator({required this.color, required this.radius});
+
   @override
   BoxPainter createBoxPainter([VoidCallback? onChanged]) {
-    throw _CirclePainter(color: color, radius: radius);
+    // TODO: implement createBoxPainter
+    return _CirclePainter(color: color, radius: radius);
   }
 }
 
@@ -112,15 +114,14 @@ class _CirclePainter extends BoxPainter {
   double radius;
   _CirclePainter({required this.color, required this.radius});
   @override
-  void paint(Canvas canvas, Offset offset, 
-  ImageConfiguration configuration) {
+  void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
     Paint _paint = Paint();
     _paint.color = color;
     _paint.isAntiAlias = true;
     final Offset circleOffset = Offset(
-        configuration.size!.width/2-radius/2,
-        configuration.size!.height-radius);
-
-    canvas.drawCircle(offset+circleOffset, radius, _paint);
+      configuration.size!.width / 2 - radius / 2,
+      configuration.size!.height-radius,
+    );
+    canvas.drawCircle(offset + circleOffset, radius, _paint);
   }
 }
