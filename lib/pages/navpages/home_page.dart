@@ -88,8 +88,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     );            
                   },
                 ),
-                Text("olá"),
-                Text("oi"),
+                const Text("olá"),
+                const Text("oi"),
               ],
             ),
           ),
