@@ -42,13 +42,13 @@ class _WelcomePageState extends State<WelcomePage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         AppLargeTerxt(text: "Tourist"),
-                        AppTerxt(text: 'Cities', size: 30),
+                        AppText(text: 'Cities', size: 30),
                         SizedBox(
                           height: 20,
                         ),
                         Container(
                           width: 250,
-                          child: AppTerxt(
+                          child: AppText(
                             text:
                                 "The tourist cities are those with high potential to receive visitors, both to enjoy their natural or architectural beauties, as well as cultural, such as fairs, exhibitions, celebrations, among other typical and famous events.",
                             color: AppColors.textColor2,
