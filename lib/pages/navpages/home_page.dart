@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 ],
               ),
             ),
-            const SizedBox(height: 40),
+            const SizedBox(height: 20),
             //discover text
             Container(
               margin: const EdgeInsets.only(left: 20),
@@ -128,7 +128,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               height: 10,
             ),
             Container(
-              height: 100,
+              height: 120,
               width: double.maxFinite,
               margin: const EdgeInsets.only(left: 20),
               child: ListView.builder(
@@ -152,6 +152,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               ),
                             ),
                           ),
+                         const  SizedBox(height: 5,),
                           Container(
                             child: AppText(
                               text:images.values.elementAt(index),
