@@ -88,11 +88,19 @@ class _DetailPageState extends State<DetailPage> {
                       ],
                     ),
                     const SizedBox(height: 20),
-                    Wrap(
-                      children: List.generate(5, (index) {
-                        return const Icon(Icons.star, color: AppColors.starColor,);
-                      }
-                      ),
+                    Row(
+                      children: [
+                        Wrap(
+                          children: List.generate(5, (index) {
+                            return const Icon(
+                              Icons.star,
+                              color: AppColors.starColor,
+                            );
+                          }),
+                        ),
+                       const  SizedBox(width: 10),
+                        AppText(text: "(4.0)", color: AppColors.textColor2),
+                      ],
                     )
                   ],
                 ),
