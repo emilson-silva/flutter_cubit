@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_cubit/constants/colors.dart';
 import 'package:flutter_cubit/widgets/app_large_text.dart';
 import 'package:flutter_cubit/widgets/app_text.dart';
+import 'package:flutter_cubit/widgets/appbuttons.dart';
 
 class DetailPage extends StatefulWidget {
   const DetailPage({Key? key}) : super(key: key);
@@ -114,11 +115,7 @@ class _DetailPageState extends State<DetailPage> {
                     AppText(text: "Número de pessoa por grupo.", color: AppColors.mainTextColor),
                     Wrap(
                      children: List.generate(5, (index) {
-                       return Container(
-                         width: 60,
-                         height: 60,
-                         decoration: BoxDecoration(borderRadius: BorderRadius.circular(15),color: AppColors.buttonBackground,),
-                       );
+                       return AppButtons();
                      }),
                     )
                   ],
