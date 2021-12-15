@@ -13,6 +13,8 @@ class DetailPage extends StatefulWidget {
 
 class _DetailPageState extends State<DetailPage> {
   int gottenStars = 4;
+  int selectedIndex = -1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -112,15 +114,26 @@ class _DetailPageState extends State<DetailPage> {
                     const SizedBox(height: 25),
                     AppLargeText(text: "Pessoas", color: Colors.black.withOpacity(0.8),size: 20),
                     const SizedBox(height: 5),
-                    AppText(text: "Número de pessoa por grupo.", color: AppColors.mainTextColor),
+                    AppText(text: "Número de pessoa por grupo", color: AppColors.mainTextColor),
+                    const SizedBox(height: 10),
                     Wrap(
                      children: List.generate(5, (index) {
-                       return AppButtons(
-                         size: 50,
-                         color: Colors.black,
-                         backgroundColor: AppColors.buttonBackground,
-                         borderColor: AppColors.buttonBackground,
-                         
+                       return InkWell(
+                         onTap: (){
+                          setState(() {
+                             selectedIndex = index;
+                          });
+                         },
+                         child: Container(
+                           margin: const EdgeInsets.only(right: 10),
+                           child: AppButtons(
+                             size: 50,
+                             color:selectedIndex == index?Colors.white : Colors.black,
+                             backgroundColor: selectedIndex == index? Colors.black : AppColors.buttonBackground,
+                             borderColor: selectedIndex == index? Colors.black :AppColors.buttonBackground,
+                            text: (index + 1).toString(),
+                           ),
+                         ),
                        );
                      }),
                     )
