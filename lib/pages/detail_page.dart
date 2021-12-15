@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cubit/constants/colors.dart';
 import 'package:flutter_cubit/widgets/app_large_text.dart';
+import 'package:flutter_cubit/widgets/app_text.dart';
 
 class DetailPage extends StatefulWidget {
   const DetailPage({Key? key}) : super(key: key);
@@ -25,7 +27,7 @@ class _DetailPageState extends State<DetailPage> {
                 height: 350,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("img/mountain.jpeg"),
+                    image: AssetImage("img/piri.jpg"),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -47,6 +49,7 @@ class _DetailPageState extends State<DetailPage> {
             Positioned(
               top: 320,
               child: Container(
+                padding: const EdgeInsets.only(left: 20, right: 20, top: 30),
                 width: MediaQuery.of(context).size.width,
                 height: 500,
                 decoration: const BoxDecoration(
@@ -57,12 +60,40 @@ class _DetailPageState extends State<DetailPage> {
                   ),
                 ),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        AppLargeText(text: "Pirinopólis"),
+                        AppLargeText(
+                          text: "Pirinopólis",
+                          color: Colors.black.withOpacity(0.8),
+                        ),
+                        AppLargeText(
+                            text: "R\$ 250,00", color: AppColors.mainColor),
                       ],
                     ),
+                    const SizedBox(height: 10),
+                    Row(
+                      children: [
+                        const Icon(
+                          Icons.location_on,
+                          color: AppColors.mainColor,
+                        ),
+                        const SizedBox(width: 10),
+                        AppText(
+                          text: "BR, Goiânia-Go",
+                          color: AppColors.textColor1,
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 20),
+                    Wrap(
+                      children: List.generate(5, (index) {
+                        return const Icon(Icons.star, color: AppColors.starColor,);
+                      }
+                      ),
+                    )
                   ],
                 ),
               ),
