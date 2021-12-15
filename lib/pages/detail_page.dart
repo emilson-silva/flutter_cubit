@@ -159,10 +159,24 @@ class _DetailPageState extends State<DetailPage> {
                           "Pirenópolis é um município histórico, sendo um dos primeiros do estado de Goiás. Foi fundado com o nome de Minas de Nossa Senhora do Rosário Meia Ponte pelo minerador português Manoel Rodrigues Tomar (alguns historiadores denominaram-no como Manoel Rodrigues Tomás). A origem do nome estaria no fato de que a ponte sobre o rio das Almas foi parcialmente destruída durante uma enchente ocorrida à época",
                       color: AppColors.mainTextColor,
                     ),
+                    const SizedBox(height: 20),
                   ],
                 ),
               ),
             ),
+            Positioned(
+              bottom: 0,
+              child: Row(
+                children: [
+                  AppButtons(
+                    color: AppColors.textColor2,
+                    backgroundColor: Colors.white,
+                    borderColor: AppColors.textColor2,
+                    size: 60,
+                  ),
+                ],
+              ),
+            )
           ],
         ),
       ),
