@@ -115,7 +115,13 @@ class _DetailPageState extends State<DetailPage> {
                     AppText(text: "Número de pessoa por grupo.", color: AppColors.mainTextColor),
                     Wrap(
                      children: List.generate(5, (index) {
-                       return AppButtons();
+                       return AppButtons(
+                         size: 50,
+                         color: Colors.black,
+                         backgroundColor: AppColors.buttonBackground,
+                         borderColor: AppColors.buttonBackground,
+                         
+                       );
                      }),
                     )
                   ],
