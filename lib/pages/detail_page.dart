@@ -112,31 +112,53 @@ class _DetailPageState extends State<DetailPage> {
                       ],
                     ),
                     const SizedBox(height: 25),
-                    AppLargeText(text: "Pessoas", color: Colors.black.withOpacity(0.8),size: 20),
+                    AppLargeText(
+                        text: "Pessoas",
+                        color: Colors.black.withOpacity(0.8),
+                        size: 20),
                     const SizedBox(height: 5),
-                    AppText(text: "Número de pessoa por grupo", color: AppColors.mainTextColor),
+                    AppText(
+                        text: "Número de pessoa por grupo",
+                        color: AppColors.mainTextColor),
                     const SizedBox(height: 10),
                     Wrap(
-                     children: List.generate(5, (index) {
-                       return InkWell(
-                         onTap: (){
-                          setState(() {
-                             selectedIndex = index;
-                          });
-                         },
-                         child: Container(
-                           margin: const EdgeInsets.only(right: 10),
-                           child: AppButtons(
-                             size: 50,
-                             color:selectedIndex == index?Colors.white : Colors.black,
-                             backgroundColor: selectedIndex == index? Colors.black : AppColors.buttonBackground,
-                             borderColor: selectedIndex == index? Colors.black :AppColors.buttonBackground,
-                            text: (index + 1).toString(),
-                           ),
-                         ),
-                       );
-                     }),
-                    )
+                      children: List.generate(5, (index) {
+                        return InkWell(
+                          onTap: () {
+                            setState(() {
+                              selectedIndex = index;
+                            });
+                          },
+                          child: Container(
+                            margin: const EdgeInsets.only(right: 10),
+                            child: AppButtons(
+                              size: 50,
+                              color: selectedIndex == index
+                                  ? Colors.white
+                                  : Colors.black,
+                              backgroundColor: selectedIndex == index
+                                  ? Colors.black
+                                  : AppColors.buttonBackground,
+                              borderColor: selectedIndex == index
+                                  ? Colors.black
+                                  : AppColors.buttonBackground,
+                              text: (index + 1).toString(),
+                            ),
+                          ),
+                        );
+                      }),
+                    ),
+                    const SizedBox(height: 20),
+                    AppLargeText(
+                        text: "Descrição",
+                        color: Colors.black.withOpacity(0.8),
+                        size: 20),
+                    const SizedBox(height: 10),
+                    AppText(
+                      text:
+                          "Pirenópolis é um município histórico, sendo um dos primeiros do estado de Goiás. Foi fundado com o nome de Minas de Nossa Senhora do Rosário Meia Ponte pelo minerador português Manoel Rodrigues Tomar (alguns historiadores denominaram-no como Manoel Rodrigues Tomás). A origem do nome estaria no fato de que a ponte sobre o rio das Almas foi parcialmente destruída durante uma enchente ocorrida à época",
+                      color: AppColors.mainTextColor,
+                    ),
                   ],
                 ),
               ),
