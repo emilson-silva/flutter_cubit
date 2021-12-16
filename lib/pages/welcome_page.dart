@@ -13,9 +13,9 @@ class WelcomePage extends StatefulWidget {
 
 class _WelcomePageState extends State<WelcomePage> {
   List images = [
-    "citi.png",
-    "summer.png",
-    "campo.png",
+    "low_poly.png",
+    "escalada.png",
+    "home.png",
   ];
   @override
   Widget build(BuildContext context) {
@@ -31,6 +31,7 @@ class _WelcomePageState extends State<WelcomePage> {
                 image: DecorationImage(
                   image: AssetImage("img/" + images[index]),
                   fit: BoxFit.cover,
+                   
                 ),
               ),
               child: Container(
@@ -45,8 +46,8 @@ class _WelcomePageState extends State<WelcomePage> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        AppLargeText(text: "Tourist"),
-                        AppText(text: 'Cities', size: 30),
+                        AppLargeText(text: "Cidades"),
+                        AppText(text: 'Turísticas', size: 30),
                         SizedBox(
                           height: 20,
                         ),
