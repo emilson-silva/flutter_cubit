@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_cubit/constants/colors.dart';
+import 'package:flutter_cubit/cubit/app_cubit_states.dart';
+import 'package:flutter_cubit/cubit/app_cubits.dart';
 import 'package:flutter_cubit/widgets/app_large_text.dart';
 import 'package:flutter_cubit/widgets/app_text.dart';
 import 'package:flutter_cubit/widgets/appbuttons.dart';
@@ -18,7 +21,10 @@ class _DetailPageState extends State<DetailPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return BlocBuilder<AppCubits, CubitStates>(builder: (context, state){
+      DetailState detail = state as DetailState; 
+
+      return Scaffold(
       body: Container(
         width: double.maxFinite,
         height: double.maxFinite,
@@ -30,9 +36,9 @@ class _DetailPageState extends State<DetailPage> {
               child: Container(
                 width: double.maxFinite,
                 height: 350,
-                decoration: const BoxDecoration(
+                decoration:  BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("img/piri.jpg"),
+                    image: NetworkImage("http://mark.bslmeiyu.com/uploads/"+detail.place.img),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -44,7 +50,7 @@ class _DetailPageState extends State<DetailPage> {
               child: Row(
                 children: [
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () => BlocProvider.of<AppCubits>(context).goHome(),
                     icon: const Icon(Icons.menu),
                     color: Colors.white,
                   ),
@@ -71,11 +77,11 @@ class _DetailPageState extends State<DetailPage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         AppLargeText(
-                          text: "Pirinopólis",
+                          text: detail.place.name,
                           color: Colors.black.withOpacity(0.8),
                         ),
                         AppLargeText(
-                            text: "R\$ 250,00", color: AppColors.mainColor),
+                            text: "R\$"+detail.place.price.toString(), color: AppColors.mainColor),
                       ],
                     ),
                     const SizedBox(height: 10),
@@ -87,7 +93,7 @@ class _DetailPageState extends State<DetailPage> {
                         ),
                         const SizedBox(width: 10),
                         AppText(
-                          text: "BR, Goiânia-Go",
+                          text: detail.place.location,
                           color: AppColors.textColor1,
                         ),
                       ],
@@ -101,7 +107,7 @@ class _DetailPageState extends State<DetailPage> {
                             (index) {
                               return Icon(
                                 Icons.star,
-                                color: index < gottenStars
+                                color: index < detail.place.stars
                                     ? AppColors.starColor
                                     : AppColors.textColor2,
                               );
@@ -109,7 +115,7 @@ class _DetailPageState extends State<DetailPage> {
                           ),
                         ),
                         const SizedBox(width: 10),
-                        AppText(text: "(4.0)", color: AppColors.textColor2),
+                        AppText(text: "(5.0)", color: AppColors.textColor2),
                       ],
                     ),
                     const SizedBox(height: 25),
@@ -156,8 +162,7 @@ class _DetailPageState extends State<DetailPage> {
                         size: 20),
                     const SizedBox(height: 10),
                     AppText(
-                      text:
-                          "Pirenópolis é um município histórico, sendo um dos primeiros do estado de Goiás. Foi fundado com o nome de Minas de Nossa Senhora do Rosário Meia Ponte pelo minerador português Manoel Rodrigues Tomar (alguns historiadores denominaram-no como Manoel Rodrigues Tomás). A origem do nome estaria no fato de que a ponte sobre o rio das Almas foi parcialmente destruída durante uma enchente ocorrida à época",
+                      text:detail.place.description,
                       color: AppColors.mainTextColor,
                     ),
                     const SizedBox(height: 20),
@@ -190,5 +195,6 @@ class _DetailPageState extends State<DetailPage> {
         ),
       ),
     );
+    });
   }
 }

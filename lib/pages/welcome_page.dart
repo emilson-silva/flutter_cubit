@@ -49,7 +49,7 @@ class _WelcomePageState extends State<WelcomePage> {
                       children: [
                         AppLargeText(text: "Cidades"),
                         AppText(text: 'Turísticas', size: 30),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         Container(
@@ -67,8 +67,9 @@ class _WelcomePageState extends State<WelcomePage> {
                             BlocProvider.of<AppCubits>(context).getData();
                           },
                           child: Container(
-                            height: MediaQuery.of(context).size.height / 3,
-                            width: MediaQuery.of(context).size.width / 3,
+                            width: 200,
+                            // height: MediaQuery.of(context).size.height / 3,
+                            // width: MediaQuery.of(context).size.width / 3,
                             child: Row(
                               children: [ResponsiveButton(width: 120)],
                             ),
