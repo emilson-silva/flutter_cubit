@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       ),
       home: BlocProvider<AppCubits>(
         create:(context)=> AppCubits(),
-        child: AppCubitLogics(),
+        child: const AppCubitLogics(),
       )
     );
   }
