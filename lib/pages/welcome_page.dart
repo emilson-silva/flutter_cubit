@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_cubit/constants/colors.dart';
+import 'package:flutter_cubit/cubit/app_cubits.dart';
 import 'package:flutter_cubit/widgets/app_large_text.dart';
 import 'package:flutter_cubit/widgets/app_text.dart';
 import 'package:flutter_cubit/widgets/responsive_button.dart';
@@ -31,7 +33,6 @@ class _WelcomePageState extends State<WelcomePage> {
                 image: DecorationImage(
                   image: AssetImage("img/" + images[index]),
                   fit: BoxFit.cover,
-                   
                 ),
               ),
               child: Container(
@@ -60,9 +61,18 @@ class _WelcomePageState extends State<WelcomePage> {
                             size: 14,
                           ),
                         ),
-                        SizedBox(height: 40),
-                        ResponsiveButton(
-                          width: 120,
+                        const SizedBox(height: 40),
+                        GestureDetector(
+                          onTap: () {
+                            BlocProvider.of<AppCubits>(context).getData();
+                          },
+                          child: Container(
+                            height: MediaQuery.of(context).size.height / 3,
+                            width: MediaQuery.of(context).size.width / 3,
+                            child: Row(
+                              children: [ResponsiveButton(width: 120)],
+                            ),
+                          ),
                         ),
                       ],
                     ),
