@@ -5,15 +5,17 @@ class  DataModel{
   int people;
   int stars;
   String description;
+  String location;
 
   DataModel({
     required this.name,
     required this.img,
     required this.price,
     required this.people,
-    required this.description,
     required this.stars,
-  })
+    required this.description,
+    required this.location,
+  });
   
 
 }
