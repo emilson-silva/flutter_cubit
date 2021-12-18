@@ -37,7 +37,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   padding: const EdgeInsets.only(top: 70, left: 20),
                   child: Row(
                     children: [
-                      const Icon(Icons.menu, size: 30, color: Colors.black54),
+                       IconButton(
+                    onPressed: () {} ,
+                    icon: const Icon(Icons.menu),
+                    color: Colors.black54,
+                  ),
                       Expanded(child: Container()),
                       Container(
                         margin: const EdgeInsets.only(right: 20),
@@ -162,8 +166,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                   borderRadius: BorderRadius.circular(20),
                                   color: Colors.white,
                                   image: DecorationImage(
-                                    image: AssetImage("img/" +
-                                        images.keys.elementAt(index)),
+                                    image: AssetImage(
+                                        "img/" + images.keys.elementAt(index)),
                                     fit: BoxFit.cover,
                                   ),
                                 ),

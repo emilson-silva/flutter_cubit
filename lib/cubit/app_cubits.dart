@@ -28,4 +28,6 @@ class AppCubits extends Cubit<CubitStates>{
     emit(LoadedState(places));
   }
 
+ 
+
 }
